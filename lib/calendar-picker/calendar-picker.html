@@ -1,0 +1,35 @@
+<polymer-element name="calendar-picker" attributes="selectedDate" on-picker-shown='{{pickerShown}}'>
+  <template>
+    <link href="calendar-picker.css" rel="stylesheet">
+
+    <div layout horizontal justified>
+      <div><paper-button raised on-tap="{{clickPrevious}}" tabindex='0'
+        disabled?="{{onCurrentMonth}}">prev</paper-button>
+      </div>
+      <div layout vertical center-justified>{{shownMonthName}} {{shownYear}}</div>
+      <div><paper-button raised on-tap="{{clickNext}}">next</paper-button></div>
+    </div>
+    <table>
+      <thead>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </thead>
+      <tbody>
+        <tr template repeat="{{week in weeks}}">
+          <td template repeat="{{day in week}}">
+            <div on-tap="{{clickDay}}" class="td {{day <= 0 ? 'dead-date' : ''}} {{day == selectedDay && shownMonth === selectedMonth ? 'selected' : ''}} {{onCurrentMonth && day < currentDay ? 'dead-date' : '' }} {{onCurrentMonth && day == currentDay ? 'current-day' : ''}}" day="{{day}}">
+              <span hidden?="{{day <= 0}}">{{day}}</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+
+  <script type="text/javascript" src='calendar-picker.js'></script>
+</polymer-element>

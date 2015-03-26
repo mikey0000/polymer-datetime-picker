@@ -1,0 +1,78 @@
+@import "../sass-globals.scss";
+
+$tdbg: #03a9f4;
+
+paper-button {
+  font-size: 12px;
+}
+
+core-input {
+  border: 1px dotted black;
+  padding: 3px;
+}
+
+paper-button /deep/ paper-ripple{
+  color: $ripple-color !important;
+}
+
+div.td {
+  border-radius: 4px;
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  &.dead-date {
+    cursor: default;
+    color: gray;
+
+    &:hover {
+
+      background-color: white;
+      color: gray;
+    }
+  }
+
+  &.current-day {
+    background-color: rgb(225, 225, 225);
+  }
+
+  @media (min-width: $md-screen) {
+    &:hover {
+      background-color: $tdbg;
+      color: white;
+    }
+  }
+
+  &.selected {
+    background-color: $tdbg;
+    cursor: default;
+    color:white;
+  }
+}
+
+div.td {
+  @media (max-width: $md-screen) {
+      padding: 16px;
+  }
+
+  @media (max-width: $mm-screen) {
+      padding: 14px;
+  }
+
+  @media (max-width: $sm-screen) {
+      padding: 12px;
+  }
+
+  @media (max-width: $xs-screen) {
+      padding: 10px;
+  }
+
+  @media (max-width: $xss-screen) {
+      padding: 7px;
+  }
+  @media (max-width: $tiny-screen) {
+      padding: 3px;
+  }
+}

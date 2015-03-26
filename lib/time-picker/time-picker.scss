@@ -1,0 +1,23 @@
+@import "../sass-globals.scss";
+
+paper-slider {
+  width: 300px;
+}
+
+section {
+  padding: 20px 0;
+}
+
+paper-button /deep/ span{
+  font-size: 20px;
+}
+
+paper-button {
+  margin-top: 75px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+paper-button /deep/ paper-ripple{
+
+  color: $ripple-color !important;
+}
